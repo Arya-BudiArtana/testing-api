@@ -65,6 +65,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-10">
+                                <div></div>
+                                <!--begin::Link-->
+                                <a href="{{ route('reset.password.email') }}" class="link-primary" data-kt-translate="sign-in-forgot-password">Forgot Password ?</a>
+                                <!--end::Link-->
+                            </div>
                             <div class="d-flex flex-stack">
                                 <button id="kt_sign_up_submit" class="btn btn-primary" type="submit"
                                     data-kt-translate="sign-up-submit">

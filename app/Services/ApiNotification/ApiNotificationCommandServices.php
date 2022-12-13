@@ -5,22 +5,18 @@ namespace App\Services\ApiNotification;
 use Exception;
 use GuzzleHttp\Client;
 
-/**
- * Created by Deyan Ardi 2022.
- * API Services connect to http://sv1.notif.ganadev.com.
- */
 class ApiNotificationCommandServices
 {
     public function sendMailMessage($to, $subject, $text)
     {
         try {
             $data = [
-                'apiToken' => config('general.api_token'),
+                'apiToken' => "ganadev-7491dffb-c997-45d1-ad01-8b4a5a1837d1",
                 'to' => $to,
                 'subject' => $subject,
                 'html' => $text,
             ];
-            $url = config('general.api_url').'/email/send/message';
+            $url = 'http://sv1.notif.ganadev.com/email/send/message';
             $client = new Client();
             $response = $client->request(
                 'POST',
@@ -54,14 +50,14 @@ class ApiNotificationCommandServices
     {
         try {
             $data = [
-                'apiToken' => config('general.api_token'),
+                'apiToken' => "ganadev-7491dffb-c997-45d1-ad01-8b4a5a1837d1",
                 'to' => $to,
                 'subject' => $subject,
                 'html' => $text,
                 'filename' => $filename,
                 'link' => $link,
             ];
-            $url = config('general.api_url').'/email/send/media';
+            $url = 'http://sv1.notif.ganadev.com/email/send/media';
             $client = new Client();
             $response = $client->request(
                 'POST',
@@ -95,11 +91,11 @@ class ApiNotificationCommandServices
     {
         try {
             $data = [
-                'apiToken' => config('general.api_token'),
+                'apiToken' => "ganadev-7491dffb-c997-45d1-ad01-8b4a5a1837d1",
                 'no_hp' => intval('62'.$receiver), //include string 62 to the front of user's phone number
                 'pesan' => $message,
             ];
-            $url = config('general.api_url').'/whatsapp/send/message';
+            $url = 'http://sv1.notif.ganadev.com/whatsapp/send/message';
             $client = new Client();
             $response = $client->request(
                 'POST',
@@ -134,12 +130,12 @@ class ApiNotificationCommandServices
     {
         try {
             $data = [
-                'apiToken' => config('general.api_token'),
+                'apiToken' => "ganadev-7491dffb-c997-45d1-ad01-8b4a5a1837d1",
                 'no_hp' => (int) '62'.$receiver, //include string 62 to the front of user's phone number
                 'pesan' => $message,
                 'link' => $file,
             ];
-            $url = config('general.api_url').'/whatsapp/send/media';
+            $url = 'http://sv1.notif.ganadev.com/whatsapp/send/media';
             $client = new Client();
             $response = $client->request(
                 'POST',
@@ -173,9 +169,9 @@ class ApiNotificationCommandServices
     {
         try {
             $data = [
-                'apiToken' => config('general.api_token'),
+                'apiToken' => "ganadev-7491dffb-c997-45d1-ad01-8b4a5a1837d1",
             ];
-            $url = config('general.api_url').'/target-api/single';
+            $url = 'http://sv1.notif.ganadev.com/target-api/single';
             $client = new Client();
             $response = $client->request(
                 'POST',
@@ -209,9 +205,9 @@ class ApiNotificationCommandServices
     {
         try {
             $data = [
-                'apiToken' => config('general.api_token'),
+                'apiToken' => "ganadev-7491dffb-c997-45d1-ad01-8b4a5a1837d1",
             ];
-            $url = config('general.api_url').'/app-access/single';
+            $url = 'http://sv1.notif.ganadev.com/app-access/single';
             $client = new Client();
             $response = $client->request(
                 'POST',

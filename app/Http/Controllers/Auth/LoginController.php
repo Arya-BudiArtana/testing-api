@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
-use App\Services\Enduser\EnduserCommandServices;
+use App\Services\User\UserCommandServices;
 use App\Models\User;
 use Throwable;
 
@@ -43,13 +43,13 @@ class LoginController extends Controller
      * @return void
      */
 
-    protected $enduserCommandServices;
+    protected $userCommandServices;
 
     public function __construct(
-        EnduserCommandServices $enduserCommandServices,
+        UserCommandServices $userCommandServices,
     ) {
         $this->middleware('guest')->except('logout');
-        $this->enduserCommandServices = $enduserCommandServices;
+        $this->userCommandServices = $userCommandServices;
     }
 
 
@@ -68,7 +68,7 @@ class LoginController extends Controller
 
                 return redirect()->route('home');
             } else {
-                $create = $this->enduserCommandServices->userGoogleStore($user_google->getEmail(), $user_google->getName());
+                $create = $this->userCommandServices->userGoogleStore($user_google->getEmail(), $user_google->getName());
                 Auth::login($create, true);
 
                 return redirect()->route('home')->with('success', 'Akun Berhasil Terverifikasi');

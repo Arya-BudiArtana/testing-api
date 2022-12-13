@@ -2,10 +2,8 @@
 
 namespace App\Services\ApiNotification;
 
-use App\Helpers\FormatDateToIndonesia;
-use App\Http\Requests\Verified\AuthPembelaanPenangguhanRequest;
 use App\Models\User;
-use App\Services\User\Enduser\EnduserQueryServices;
+use App\Services\User\UserQueryServices;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -25,21 +23,21 @@ class ApiNotificationMessageServices
 {
     protected $apiNotificationCommandServices;
 
-    protected $enduserQueryServices;
+    protected $userQueryServices;
 
     public function __construct(
         ApiNotificationCommandServices $apiNotificationCommandServices,
-        EnduserQueryServices $enduserQueryServices,
+        UserQueryServices $userQueryServices,
 
     ) {
         $this->apiNotificationCommandServices = $apiNotificationCommandServices;
-        $this->enduserQueryServices = $enduserQueryServices;
+        $this->userQueryServices = $userQueryServices;
     }
 
     public function resetPasswordByEmail(string $email, string $name, string $link)
     {
         $judul = 'Reset Password Notification';
-        $message = view('email.securityResetPassword', compact('link', 'name'))->render();
+        $message = $link;
         $send_email = $this->apiNotificationCommandServices->sendMailMessage($email, $judul, $message);
         if ($send_email['status'] != 200) {
             return false;

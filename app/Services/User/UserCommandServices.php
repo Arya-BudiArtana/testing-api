@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Services\Enduser;
+namespace App\Services\User;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
 
-class EnduserCommandServices
+class UserCommandServices
 {
     public function userGoogleStore(string $email, string $name)
     {
