@@ -7,7 +7,6 @@ use App\Http\Requests\Verified\AuthForgotPasswordEmailRequest;
 use App\Http\Requests\Verified\AuthResetPasswordRequest;
 use App\Services\ApiNotification\ApiNotificationCommandServices;
 use App\Services\ApiNotification\ApiNotificationMessageServices;
-use App\Services\User\GeneralUserQueryServices;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
