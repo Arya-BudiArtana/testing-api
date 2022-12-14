@@ -12,7 +12,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "*"
+        "laravel/ui": "*",
+        "seshac/otp-generator": "^0.0.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

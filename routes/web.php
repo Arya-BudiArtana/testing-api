@@ -39,3 +39,9 @@ Route::prefix('reset-password')->group(function () {
     Route::get('token/{token}', [ForgotPasswordController::class, 'resetPassword'])->name('reset.password.getEmail');
     Route::post('aksi', [ForgotPasswordController::class, 'resetPasswordStore'])->name('reset.password.update');
 });
+
+Route::prefix('login-whatsapp')->group(function () {
+    Route::get('/', [LoginController::class, 'loginWhatsappForm'])->name('login-whatsapp.index');
+    Route::post('/verifikasi', [LoginController::class, 'loginWhatsappVerifikasi'])->name('login-whatsapp.verifikasi');
+    Route::post('/aksi', [LoginController::class, 'loginWhatsappAksi'])->name('login-whatsapp.aksi');
+});

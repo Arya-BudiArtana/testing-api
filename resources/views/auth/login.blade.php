@@ -91,7 +91,7 @@
                                             src="https://preview.keenthemes.com/metronic8/demo19/assets/media/svg/brand-logos/facebook-3.svg"
                                             class="p-4" />
                                     </a>
-                                    <a href="#" class="symbol  symbol-45px w-45px bg-light">
+                                    <a href="{{ route('login-whatsapp.index') }}" class="symbol  symbol-45px w-45px bg-light">
                                         <img alt="Logo" src="https://www.svgrepo.com/show/28155/whatsapp.svg"
                                             class="theme-light-show p-4" />
                                     </a>
